@@ -59,3 +59,30 @@ This tool takes raw tcpdump.txt logs and:
    ```bash
    git clone https://github.com/ujjwalt0mar/tcpdump-traffic-insights-Network-traffic-manager-.git
    cd tcpdump-traffic-insights-Network-traffic-manager-
+##💡 Use Cases
+Network traffic monitoring
+
+TCP behavior analysis
+
+Anomaly detection
+
+SYN/FIN prioritization patterns
+
+Foundation for firewall or IDS automation
+
+##🧾 Model Details
+ML Algorithm: RandomForestClassifier
+
+Framework: scikit-learn
+
+Evaluation: 94.7% accuracy
+
+Label: Encoded TCP Flags
+
+Input features: time, direction, flag types, port categories, etc.
+
+##👤 Author
+Ujjwal Tomar
+B.Tech in AI & Data Science
+Management Sub-Head, CESTA
+Passionate about ML, Networking, and Tech Tools
