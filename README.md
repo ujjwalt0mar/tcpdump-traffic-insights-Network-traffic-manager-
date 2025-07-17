@@ -48,7 +48,7 @@ This tool takes raw tcpdump.txt logs and:
 | parser.py       | Line-by-line parser for log               |
 | features.py     | Feature engineering (flags, direction…)   |
 | model.py        | ML training and evaluation script         |
-| notebook.ipynb  | Full notebook version (optional)          |
+| notebook.ipynb  | Full notebook version          |
 | README.md       | You’re reading it                         |
 
 ---
