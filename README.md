@@ -1,89 +1,101 @@
 # 🛰️ tcpdump-traffic-insights-Network-traffic-manager
 
-🔗 GitHub Repository: [ujjwalt0mar/tcpdump-traffic-insights-Network-traffic-manager](https://github.com/ujjwalt0mar/tcpdump-traffic-insights-Network-traffic-manager-)
 
-An intelligent system to analyze and classify TCP packet types using parsed tcpdump logs. This project extracts structured insights from raw network traffic and uses machine learning to identify, predict, and prioritize TCP flags (SYN, ACK, FIN, RST, etc.) across time and port behavior.
+🔗 **Project Notebook**: `ML_Pipline.ipynb`  
+📁 **Repository Name**: `tcpdump-traffic-insights-Network-traffic-manager-`
+
+This project is a prototype designed during an internship at DRDO (DESIDOC) to classify TCP packet types from parsed tcpdump logs and derive structured insights from raw network traffic. It uses machine learning to identify and prioritize packet behavior across time and port patterns.
 
 ---
 
 ## 📌 Key Features
 
-- ✅ Parses raw tcpdump logs into structured packet data  
-- ✅ Classifies TCP packets based on flags  
-- ✅ Engineers intelligent features: direction, port type, time of day  
-- ✅ Trains a Random Forest model with 94.7% accuracy  
-- ✅ Visualizes traffic trends and flag prioritization  
-- ✅ Acts as a base for building a full network traffic monitoring dashboard
+✅ Parses tcpdump logs into structured tabular format  
+✅ Extracts and processes TCP flags (SYN, ACK, FIN, RST, etc.)  
+✅ Feature engineering for IP direction, port types, and timestamp bins  
+✅ Trains a Random Forest Classifier for flag prediction  
+✅ Visualizes traffic patterns over time  
+✅ Built as a single, self-contained Jupyter Notebook (`DRDO.ipynb`)  
 
 ---
 
-## 🧠 What It Does
+## 🧠 What the Notebook Does
 
-This tool takes raw tcpdump.txt logs and:
-
-1. Extracts source/destination IP, ports, TCP flags, and timestamp  
-2. Categorizes ports (well-known, dynamic, etc.)  
-3. Detects direction (inbound, outbound, external)  
-4. Labels the time of day (morning, evening, etc.)  
-5. One-hot encodes TCP flags (e.g., SYN, RST, ACK)  
-6. Trains a machine learning model to predict packet types  
-7. Analyzes time-based flag prioritization (e.g., more RSTs at night)
+- Reads and parses raw tcpdump lines  
+- Splits fields like IP, ports, flags, sequence numbers  
+- Encodes TCP flags into machine-readable features  
+- Classifies packet types using `RandomForestClassifier`  
+- Plots flag distribution and time-based behavior  
 
 ---
 
-## 📊 Results
+## 🧪 Model Details
 
-- 🎯 Accuracy: 94.7% (Random Forest Classifier)  
-- 📈 Top features: time, ACK, SYN, direction, port types  
-- 🧠 Output: Real-time classification of TCP packet intent  
-- ✅ Ready for integration into Streamlit or FastAPI dashboards
+- 📌 **Algorithm**: RandomForestClassifier  
+- 🧠 **Framework**: scikit-learn  
+- 🎯 **Expected Accuracy**: ~94–95% (based on historical runs)  
+- 🏷️ **Labels**: Encoded TCP Flags (e.g., SYN, ACK, FIN, RST)  
+- 📊 **Features**: Time bins, IP types, port roles, and one-hot encoded flags  
 
 ---
 
 ## 📁 Project Structure
 
-| File            | Purpose                                   |
-|-----------------|--------------------------------------------|
-| tcpdump.txt     | Input: captured tcpdump log               |
-| parser.py       | Line-by-line parser for log               |
-| features.py     | Feature engineering (flags, direction…)   |
-| model.py        | ML training and evaluation script         |
-| notebook.ipynb  | Full notebook version          |
-| README.md       | You’re reading it                         |
+| File           | Purpose                                      |
+|----------------|----------------------------------------------|
+| `DRDO.ipynb`   | All parsing, training, and visualization code |
+| `README.md`    | This documentation file                      |
+| *(Optional)* `parser.py` | Script version of parsing logic   |
+| *(Optional)* `features.py` | Script for feature engineering  |
 
 ---
 
-##🚀 How to Use
+## 🚀 How to Use
 
-1. Clone this repo:
+1. Clone the repo or download the `.ipynb` file:
    ```bash
    git clone https://github.com/ujjwalt0mar/tcpdump-traffic-insights-Network-traffic-manager-.git
    cd tcpdump-traffic-insights-Network-traffic-manager-
+
+## 🚀 How to Use
+
+1. **Open and run the notebook:**
+   ```bash
+   jupyter notebook DRDO.ipynb
+   ```
+
+2. **(Optional) Run script files if modular setup is used:**
+   ```bash
+   python parser.py
+   python features.py
+   python model.py
+   ```
+
+---
+
 ## 💡 Use Cases
 
-- Network traffic monitoring  
-- TCP behavior analysis  
-- Anomaly detection  
-- SYN/FIN prioritization patterns  
-- Foundation for firewall or IDS automation  
+- DRDO or defense network traffic analysis  
+- TCP packet behavior detection (SYN flood, RST scans, etc.)  
+- Feature logging for firewall/IDS systems  
+- Real-time prioritization of critical TCP flags  
+- Educational tool for ML in networking  
 
 ---
 
-## 🧾 Model Details
-
-- 📌 ML Algorithm: RandomForestClassifier  
-- 🧪 Framework: scikit-learn  
-- 🎯 Evaluation: 94.7% accuracy  
-- 🏷️ Label: Encoded TCP Flags  
-- 📊 Input Features: time, direction, flag types, port categories, etc.
-
----
-
-## 👤 Author
+## 🧑‍💻 Author
 
 **Ujjwal Tomar**  
 🎓 B.Tech in AI & Data Science  
 📌 Management Sub-Head, CESTA  
 🛡️ Intern at DESIDOC (DRDO)  
-💡 Passionate about ML, Networking, and Tech Tools
+💡 Passionate about cybersecurity, ML, and network automation  
 
+---
+
+## 📦 Future Enhancements
+
+- Real-time packet monitoring using `scapy`  
+- Streamlit dashboard for live flag classification  
+- FastAPI-based REST service for network monitoring  
+- Export capabilities for SIEM tools and logging servers  
