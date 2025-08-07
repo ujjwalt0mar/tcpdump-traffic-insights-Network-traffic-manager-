@@ -72,7 +72,7 @@ This project is a prototype built during an internship at **DRDO (DESIDOC)**. It
 
 1. **Open and run the notebook:**
    ```bash
-   jupyter notebook DRDO.ipynb
+   jupyter notebook ML_Pipline.ipynb
    ```
 
 2. **(Optional) Run script files if modular setup is used:**
