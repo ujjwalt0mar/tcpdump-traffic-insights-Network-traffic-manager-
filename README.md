@@ -43,10 +43,10 @@ This project is a prototype built during an internship at **DRDO (DESIDOC)**. It
 
 ## 📁 Project Structure
 
-| File             | Purpose                                        |
-|------------------|------------------------------------------------|
-| `DRDO.ipynb`     | Main notebook for parsing, ML, and plots       |
-| `README.md`      | This documentation                             |
+| File                   | Purpose                                        |
+|------------------------|------------------------------------------------|
+| `ML_Pipline.ipynb`     | Main notebook for parsing, ML, and plots       |
+| `README.md`            | This documentation                             |
 
 ---
 
