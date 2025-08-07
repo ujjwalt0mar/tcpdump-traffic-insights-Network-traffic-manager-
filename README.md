@@ -2,30 +2,32 @@
 
 
 🔗 **Project Notebook**: `ML_Pipline.ipynb`  
-📁 **Repository Name**: `tcpdump-traffic-insights-Network-traffic-manager-`
+📁 **Repository**: `tcpdump-traffic-insights-Network-traffic-manager-`
 
-This project is a prototype designed during an internship at DRDO (DESIDOC) to classify TCP packet types from parsed tcpdump logs and derive structured insights from raw network traffic. It uses machine learning to identify and prioritize packet behavior across time and port patterns.
+This project is a prototype built during an internship at **DRDO (DESIDOC)**. It analyzes and classifies TCP packets from raw tcpdump logs using machine learning and intelligent feature engineering. The goal is to detect and prioritize TCP behaviors like SYN, RST, FIN, and ACK for network-level analysis.
 
 ---
 
 ## 📌 Key Features
 
 ✅ Parses tcpdump logs into structured tabular format  
-✅ Extracts and processes TCP flags (SYN, ACK, FIN, RST, etc.)  
-✅ Feature engineering for IP direction, port types, and timestamp bins  
-✅ Trains a Random Forest Classifier for flag prediction  
-✅ Visualizes traffic patterns over time  
-✅ Built as a single, self-contained Jupyter Notebook (`DRDO.ipynb`)  
+✅ Extracts TCP flags and other key metadata  
+✅ Engineers features like IP direction, port type, time bins  
+✅ Trains a **Random Forest** model for TCP flag classification  
+✅ Visualizes flag distribution, trends, and time-based prioritization  
+✅ Fully implemented in a self-contained Jupyter Notebook  
 
 ---
 
 ## 🧠 What the Notebook Does
 
-- Reads and parses raw tcpdump lines  
-- Splits fields like IP, ports, flags, sequence numbers  
-- Encodes TCP flags into machine-readable features  
-- Classifies packet types using `RandomForestClassifier`  
-- Plots flag distribution and time-based behavior  
+- Reads raw `tcpdump.txt` or similar log files  
+- Extracts fields: timestamp, source IP, destination IP, ports, flags  
+- Converts TCP flags into one-hot encoded features  
+- Categorizes ports (well-known, dynamic, private)  
+- Adds metadata like packet direction and time of day  
+- Trains a model to classify or predict TCP flag behavior  
+- Outputs accuracy metrics and visual insights
 
 ---
 
@@ -33,26 +35,35 @@ This project is a prototype designed during an internship at DRDO (DESIDOC) to c
 
 - 📌 **Algorithm**: RandomForestClassifier  
 - 🧠 **Framework**: scikit-learn  
-- 🎯 **Expected Accuracy**: ~94–95% (based on historical runs)  
-- 🏷️ **Labels**: Encoded TCP Flags (e.g., SYN, ACK, FIN, RST)  
-- 📊 **Features**: Time bins, IP types, port roles, and one-hot encoded flags  
+- 🎯 **Expected Accuracy**: ~94.7%  
+- 🏷️ **Target**: TCP Flags (SYN, ACK, FIN, RST, etc.)  
+- 📊 **Features**: Time bin, IP direction, port type, flag encodings  
 
 ---
 
 ## 📁 Project Structure
 
-| File           | Purpose                                      |
-|----------------|----------------------------------------------|
-| `DRDO.ipynb`   | All parsing, training, and visualization code |
-| `README.md`    | This documentation file                      |
-| *(Optional)* `parser.py` | Script version of parsing logic   |
-| *(Optional)* `features.py` | Script for feature engineering  |
+| File             | Purpose                                        |
+|------------------|------------------------------------------------|
+| `DRDO.ipynb`     | Main notebook for parsing, ML, and plots       |
+| `README.md`      | This documentation                             |
+
+---
+
+## 🔧 Optional Files (Recommended for Modularity)
+
+| File            | Purpose                                              |
+|-----------------|------------------------------------------------------|
+| `parser.py`     | Script to parse tcpdump lines into structured data   |
+| `features.py`   | Feature engineering utilities for ML input prep      |
+| `model.py`      | ML training and evaluation script (Random Forest)    |
+| `requirements.txt` | Python dependencies list                          |
 
 ---
 
 ## 🚀 How to Use
 
-1. Clone the repo or download the `.ipynb` file:
+1. Clone the repository:
    ```bash
    git clone https://github.com/ujjwalt0mar/tcpdump-traffic-insights-Network-traffic-manager-.git
    cd tcpdump-traffic-insights-Network-traffic-manager-
