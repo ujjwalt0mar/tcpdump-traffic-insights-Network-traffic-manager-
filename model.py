@@ -1,12 +1,20 @@
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import classification_report
 
-def train_model(X, y):
-    model = RandomForestClassifier(n_estimators=100, random_state=42)
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-    model.fit(X_train, y_train)
-    predictions = model.predict(X_test)
-    acc = accuracy_score(y_test, predictions)
-    print(f"Accuracy: {acc * 100:.2f}%")
-    return model
+# Prepare features and labels
+X = df[["protocol", "src_port", "dst_port", "length"]].copy()
+X["protocol"] = LabelEncoder().fit_transform(X["protocol"])
+y = df["application"]
+
+# Train/test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train model
+clf = RandomForestClassifier()
+clf.fit(X_train, y_train)
+
+# Predict & evaluate
+y_pred = clf.predict(X_test)
+print(classification_report(y_test, y_pred))
