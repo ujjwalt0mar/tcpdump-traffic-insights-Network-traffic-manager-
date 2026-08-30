@@ -1,0 +1,7 @@
+@"
+data/*.txt
+data/tagged_with_services.csv
+models/*.joblib
+__pycache__/
+*.pyc
+"@ | Set-Content .gitignore

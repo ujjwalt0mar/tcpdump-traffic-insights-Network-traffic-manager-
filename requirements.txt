@@ -1,3 +1,13 @@
+# Core pipeline (parser, features, model)
 pandas
 scikit-learn
+joblib
+
+# Visualization (notebook plots)
 matplotlib
+
+# Dashboard (Streamlit UI - next step)
+streamlit
+
+# Live capture (real-time monitoring, future enhancement)
+scapy
