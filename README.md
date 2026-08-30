@@ -21,15 +21,15 @@ Originally built as a prototype during an internship at **DRDO (DESIDOC)**, then
 
 **Suspicious traffic detection** — flows ranked by anomaly score, with packet counts and flag ratios:
 
-![Suspicious Traffic](screenshots\dashboard_suspicious_traffic.png)
+![Suspicious Traffic](screenshots/dashboard_suspicious_traffic.png)
 
 **Service breakdown** — real traffic tagged by destination service:
 
-![Service Breakdown](screenshots\dashboard_service_breakdown.png)
+![Service Breakdown](screenshots/dashboard_service_breakdown.png)
 
 **TCP flag distribution** — real flag class counts from the trained classifier:
 
-![Flag Distribution](screenshots\dashboard_flag_distribution.png)
+![Flag Distribution](screenshots/dashboard_flag_distribution.png)
 
 ---
 
@@ -61,7 +61,7 @@ tcpdump-traffic-insights-Network-traffic-manager/
 ├── scripts/
 │   ├── capture_traffic.ps1     # Windows capture script (tshark-based)
 │   └── capture_traffic.sh      # Linux/Mac capture script (tcpdump-based)
-├── docs/screenshots/
+├── screenshots/
 ├── .streamlit/config.toml      # dashboard theme
 ├── requirements.txt
 └── README.md
